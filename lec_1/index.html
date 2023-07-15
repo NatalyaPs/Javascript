@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="кг">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        let countClickButton = 0;
+        console.log(countClickButton);
+        console.log(typeof countClickButton);
+        countClickButton = countClickButton + 2;
+        console.log(`нажали на кнопку ${countClickButton + 5} раз`);
+
+        console.log(typeof 2);
+        console.log(typeof "2");
+
+        let string = "Hello";
+        string = 'Hello';
+        let result = 8;
+        let literal = `Результат: ${result}`;
+        let emptyString = "";
+
+        // Nan -> not a number
+        // Infinity - бесконечность (при :0 часто)
+
+        let isPassExam = true;
+        if(isPassExam) console.log(`Поздравляем, Вы сдали экзамен!`);
+
+        // undefined - переменная без значения
+
+        // объект:
+        let student = {
+            firstName: "Ivan",
+            lastName: "Petrov",
+            age: 33,
+            faculty: "Information Technologies"
+        }
+        console.log(`${student.firstName} ${student.lastName} is ${student.age} years old`);
+
+        Array
+
+        Function
+
+    </script>
+</body>
+</html>
