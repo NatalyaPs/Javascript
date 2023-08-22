@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw1_tasks</title>
+</head>
+<body>
+    <!-- # 1 -->
+    <div id="btn">
+        <h3>Задача 1</h3>
+        <button @click="changeTextBtn()">{{ textBtn }}</button>
+    </div>
+    <!-- #2, #3 -->
+    <div id = "list">
+        <h3>Задачи 2 и 3</h3>
+        <ul>
+            <li v-for="(item, index) in items" :key="item">
+                <p>
+                    {{ item }}
+                    <button @click="deleteItem()">x</button>
+                </p>
+            </li>
+        </ul>
+        <p>
+            <input type="text" @keyup.enter="addItem()" v-model="message" placeholder="Новый элемент списка" />
+            <button @click="addItem()">Добавить</button>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        /* Урок 2. Семинар: Введение в Vue.js
+Часть 1: Данное задание направлено на подготовку проекта к итоговой аттестации.
+По заданному макету https://www.figma.com/file/okdYD45Tj2JpKsNASccUmf/Interior-Design-Webflow-Website-Template-(Community)-(Copy)-(Copy)?type=design&node-id=101-14&t=hPokjgMtIgcsYlyO-0 создать верстку главной страницы (без использования vue).*/
+
+/*Часть 2. ### Задачи по vue
+1. Создать кнопку "Перевернуть". При клике на кнопку текст кнопки, должен перевернуться и отобразиться в обратном порядке.*/
+
+const btn = new Vue ({
+    el: '#btn',
+    data: {
+        textBtn: 'Перевернуть',
+    }, 
+    methods: {
+        changeTextBtn() {
+            this.textBtn = this.textBtn.split('').reverse().join('');
+            return this.textBtn;
+        },
+    },
+})
+
+/*2. Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить".*/
+/*3. * При клике на элемент списка он должен быть удален. (по желанию) */
+
+const listAdd = new Vue({
+    el: '#list',
+    data: {
+        message: '',
+        items: [],
+    },
+    methods: {
+        addItem() {
+            this.items.push(this.message);
+            this.message = '';
+        },
+        deleteItem() {
+            this.items.splice(this.message, 1);
+        },
+    },
+})
+    </script>
+</body>
+</html>
